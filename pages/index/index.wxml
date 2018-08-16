@@ -1,0 +1,40 @@
+<!-- index.wxml -->
+<view class="container" hover-class="none">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      获取头像昵称
+    </button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">您好！{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="time-wrap" hover-class="none" hover-stop-propagation="false">
+    <text class="time-info" selectable="false" space="false" decode="false">{{tiemInfo}}</text>
+  </view>
+  <view class="input-wrap">
+    <add-input bind:addClick="onAddClick"></add-input>
+  </view>
+  <view class="" hover-class="none" hover-stop-propagation="false" wx:if="{{num == 0 ? true : false}}">
+    <text class="info-1" selectable="false" space="false" decode="false">厉害了！事情都已经处理完了</text>
+  </view>
+  <view wx:if="{{isNotEmpty}}" class="content-wrap">
+    <view class="task-list-wrap list-wrap">
+      <task-list taskData="{{taskData}}" hasComplete="{{hasComplete}}" bind:changeTaskStatus="onChangeTaskStatus" num="{{num}}"></task-list>
+    </view>
+    <view class="done-list-wrap list-wrap" hover-class="none" hover-stop-propagation="false" wx:if="{{isShowAll}}">
+      <done-list doneData="{{doneData}}" bind:changeTaskStatus="onChangeTaskStatus"></done-list>
+    </view>
+    <view class="btns-con" hover-class="none" hover-stop-propagation="false" wx:if="{{!!taskData.length}}">
+      <view class="btns-wrap" hover-class="none" hover-stop-propagation="false">
+        <button class="btn-1" catchtap="showAll" wx:if="{{doneData.length > 0 ? true : false}}">
+          {{btnText}}
+        </button>
+        <button class="btn-1" catchtap="clearAll">清空</button>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <text class="info-text" selectable="false" space="false" decode="false">不积跬步无以至千里，日事清，日事毕</text>
+  </view>
+</view>

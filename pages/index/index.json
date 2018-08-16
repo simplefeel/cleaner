@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "add-input": "/components/add-input/index",
+        "task-list": "/components/task-list/task",
+        "done-list": "/components/done-list/done"
+    },
+    "navigationBarTitleText": "番茄小笔记"
+}

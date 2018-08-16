@@ -1,0 +1,53 @@
+/* components/done-list/done.wxss */
+
+.task {
+    font-size: 30rpx;
+    text-decoration: line-through;
+    color: #bbb;
+}
+
+.text-style {
+    font-size: 30rpx;
+}
+
+.del {
+    background-color: orangered;
+    width: 90rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-transform: translateX(90rpx);
+    transform: translateX(90rpx);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    font-size: 30rpx;
+}
+
+.touch-move-active .content,
+.touch-move-active .del {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.checkbox-group-wrap {
+}
+
+.checkbox-label {
+    width: 100%;
+    height: 100rpx;
+    background: #fff;
+    margin: 10rpx 0;
+    padding-left: 38rpx;
+    box-sizing: border-box;
+    line-height: 100rpx;
+    border-radius: 3px;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.checkbox-group-container {
+    visibility: hidden;
+}

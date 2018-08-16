@@ -1,0 +1,13 @@
+<!-- components/task-list/task.wxml -->
+<view class="task-list-container" wx:if="{{num > 0 ? true : fasle}}">
+  <text class="task-tips" selectable="false" space="false" decode="false">您有待办事项{{num}}条</text>
+  <view wx:for="{{taskData}}" class="task-item {{item.isTouchMove ? 'touch-move-active':''}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:key="{{index}}" data-index="{{index}}" wx:if="{{item.isComplete ? false : true}}">
+    <checkbox-group bindchange="checkboxChange">
+      <checkbox value="{{item.id}}" />
+    </checkbox-group>
+    <view class="task">{{item.value}}</view>
+    <view class="del" hover-class="none" hover-stop-propagation="false" data-index="{{index}}" bind:tap="handleDel">
+      删除
+    </view>
+  </view>
+</view>

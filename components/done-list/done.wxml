@@ -1,0 +1,12 @@
+<view wx:if="{{!doneData.length ? false : true}}">
+    <text class="text-style">您已完成事项{{doneData.length}}条</text>
+    <checkbox-group bindchange="checkboxChange" class="checkbox-group-wrap">
+        <view for="" wx:for="{{doneData}}" class="checkbox-label {{item.isTouchMove ? 'touch-move-active':''}}" wx:key="{{item.id}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{item.id}}">
+            <checkbox value="{{item.id}}" checked="{{item.isComplete}}" />
+            <view class="task">{{item.value}}</view>
+            <view class="del" hover-stop-propagation="false" data-id="{{item.id}}" bind:tap="handleDel">
+                删除
+            </view>
+        </view>
+    </checkbox-group>
+</view>

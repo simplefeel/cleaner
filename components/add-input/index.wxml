@@ -1,0 +1,4 @@
+<view class="add-input-container">
+    <input placeholder="写下你的代办事项" value="{{taskStr}}" class="w-input" bindinput="handleInput" placeholder-class="place-input" />
+    <button bindtap="handleClick" class="add-btn">记录</button>
+</view>
